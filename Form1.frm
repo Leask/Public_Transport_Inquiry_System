@@ -6,8 +6,9 @@ Begin VB.Form Form1
    ClientTop       =   450
    ClientWidth     =   14325
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8940
-   ScaleWidth      =   14325
+   ScaleHeight     =   596
+   ScaleMode       =   3  'Pixel
+   ScaleWidth      =   955
    StartUpPosition =   3  '窗口缺省
    Begin VB.HScrollBar Map_CT_X 
       Height          =   280
@@ -45,12 +46,12 @@ Begin VB.Form Form1
          BorderStyle     =   0  'None
          ForeColor       =   &H80000008&
          Height          =   20535
-         Left            =   2205
+         Left            =   -405
          Picture         =   "Form1.frx":0000
          ScaleHeight     =   20535
          ScaleWidth      =   30720
          TabIndex        =   3
-         Top             =   1710
+         Top             =   540
          Width           =   30720
       End
    End
@@ -78,11 +79,16 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'Demo 1
-'=====================Leask==========================
-'(C) 2007 Leask Huang
+'=============================================================
+'地图显示模块 DEMO 2
 '
+'设计/编程: 黄思夏
+'Design/Program: Leask Huang
+'Copyfree (C) 2008 Leask Huang
 '
+'==============================================================
+
+
 
 Option Explicit
 Dim Move_X As Long
