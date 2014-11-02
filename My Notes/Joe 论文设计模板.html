@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 5.6.2 (450946)"/><meta name="altitude" content="42.58078002929688"/><meta name="author" content="Leask Wong"/><meta name="created" content="2014-04-03 15:26:19 +0000"/><meta name="latitude" content="22.7706193258861"/><meta name="longitude" content="114.2973715084289"/><meta name="updated" content="2014-04-03 15:26:19 +0000"/><title>Joe 论文设计模板</title></head><body>
+<div><br/></div>
+<div><br/></div>
+<div>华南师范大学增城学院毕业设计（论文）</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>公交车查询系统数据库设计与应用</div>
+<div><br/></div>
+<div><br/></div>
+<div>学生姓名：梁健洲</div>
+<div>学 号：049524246</div>
+<div>专业班级：电子商务（2）班</div>
+<div>指导教师：张小兰</div>
+<div><br/></div>
+<div><br/></div>
+<div>2008年4月24日</div>
+<div>摘 要</div>
+<div><br/></div>
+<div>公共交通系统是城市交通的重要组成部分，随着城市规模的扩大，公交线路查询必将成为人们日常出行及 旅游中必不可少的需要之一。分析了目前我国城市公交查询系统存在的缺点，根据实际需要提出了城市公交乘车查询系统的设计方案和系统实现方法，以Access数据库为基础，利用VB进行开发实现了城市公交线路的智能查询。</div>
+<div><br/></div>
+<div>关键词:设备管理系统；数据库；</div>
+<div>ABSTRACT</div>
+<div><br/></div>
+<div>Urban public transport system is an important component of the traffic, with the expansion of the size of the cities, bus lines will become routine for travel and tourism in one of the essential needs. Analysis of the current China's urban public transport system for the defects, according to actual needs of the urban public transport to travel for the system design and system implementation method, based on the Access database, developed by VB to achieve the city's bus lines Intelligent query.</div>
+<div><br/></div>
+<div>Keywords: Administrative system;; Database;</div>
+<div>目 录</div>
+<div><br/></div>
+<div>第一章 前 言 1</div>
+<div>1．引言 1</div>
+<div>2. 研究背景 1</div>
+<div>3. 系统目标 1</div>
+<div>第二章 系统分析 3</div>
+<div>1. 软件定义  3</div>
+<div>2. 系统目标 3</div>
+<div>3. 体系结构规划 3</div>
+<div>4. 需求分析 3</div>
+<div>4.1 数据库描述 4</div>
+<div>4.2 数据流图 5</div>
+<div>5. 可行性分析研究 5</div>
+<div>第三章 系统总体设计 6</div>
+<div>1. 数据库模式的选择 6</div>
+<div>2. 概要设计 6</div>
+<div>3. 详细设计 7</div>
+<div>3.1 主要模块功能详述 7</div>
+<div>3.2 数据库设计过程 7</div>
+<div>3.3 连接数据库 8</div>
+<div>9</div>
+<div>4. 界面设计 9</div>
+<div>4.1 以用户为中心的界面设计 9</div>
+<div>4.2 界面窗口 9</div>
+<div>第四章 系统平台的选用 10</div>
+<div>1. 数据库技术的现状与发展 10</div>
+<div>2. 数据库系统的选择原则 10</div>
+<div>3. 系统开发工具的选择 10</div>
+<div>第五章 系统测试 11</div>
+<div>1. 对软件进行测试的基本原则 11</div>
+<div>2. 对软件进行测试的主要方法 11</div>
+<div>3. 测试内容及结果 11</div>
+<div>4. 系统存在的问题 11</div>
+<div>第六章 结 论 12</div>
+<div>1. 本系统特点  12</div>
+<div>2. 开发心得 12</div>
+<div>致 谢 13</div>
+<div>参考文献 14</div>
+<div>附 录 14</div>
+<div>第一章 前 言</div>
+<div><br/></div>
+<div>1．引言</div>
+<div>城市公共交通作为城市交通网络中的重要组成部分，是城市内部人流的主要传输载体，对降低车辆流量、舒缓交通负载与堵塞、改善车流效率发挥至关重要的作用。如何快速寻找一条经济、合理、方便的最优乘车路线或换乘方案，成为城市居民和外地旅客一个非常困惑的问题。[1]</div>
+<div>一般的最优乘车线路即最优路径是依据网络拓扑关系，通过计算起点到终点的最短路径来解决的。虽然，公交网络在数学上也可以描述为一个网络，但它与图论中的网络图存在较大的区别。如果，直接用图论中描述网络图的方法来描述公交网络，是一件比较困难的事，所以，公交最优乘车路线问题不适合用经典的最短路径算法来解决。随着数据库技术的发展，数据库的运算效率大大提高，用数据库来表示公交网络，用数据库查询技术实现公交的最优乘车路线查询，完全可以满足用户出行查询的要求。[2]</div>
+<div>2. 研究背景</div>
+<div>在西方国家(如美国、日本等)．在城市公交网络系统上投人了极大的财力．构建了利用计算机网络和先进的通信系统的智能运输系统ITS(Intelligence Transport System) ．从而实现了大范围内全方位发挥的实时、准确、高效的运输综合管理，使人、车、路密切配合，和谐统一 ，大大改善了交通环境等。国内在这方面的起步较晚，但是各地政府都给予了极大的重视 ．相继建立了网上公交查询系统 ，但是效果不甚理想 。</div>
+<div>主要存在以下一些问题 ：</div>
+<div>(1)查询界面不直观。目前大多数公交查询系统都以输入起始站点和终到站点的方式进行文本查询，而不能和城市地图匹配，这给那些不熟悉城市公交站点的出行者(如外地游客)带来了很大困难.</div>
+<div>(2)查询结果有限。大部分公交查询系统都普遍存在查询速度问胚，即由于公交查询运算速度与乘换次数是成几何级数关系增长的，所以这类查询系统一般都只能提供乘换两次以内的查询结果。</div>
+<div>(3)提供信息不全。目前的公交查询系统没有提供针对某一特定站点。查询通过该站点所有公交路线。以及针对某一特定公交线路的始发车和收班车时间、发车时间间隔等信息，而这些信息对于公交查询系统是必要的。</div>
+<div>(4)公交线路更改不便。由于公交数据结构的原因，在大多数公交系统中．如果需要更改其中某一条公交线路或需要增加一条新的公交线路。则需要对数据库进行重构。</div>
+<div>3. 系统目标</div>
+<div>公交查询系统主要服务于对市内公交线路不太熟悉的居民以及外地旅客，他们在以，在选择公交线路和乘车方案时存在着很大的盲目性，而该查询系统除了可以为出行者础信息、线路运行信息外，还可以将经过计算机分析的最佳出行线路及换乘方案推荐给导乘客合理化选择线路，减少乘客的出行延误，从而提高整个公交线网的运行效率。</div>
+<div>第二章 系统分析</div>
+<div><br/></div>
+<div>1. 软件定义</div>
+<div>数据库设计所要的解决的问题是：对于一个给定的应用领域，设计优化的数据库逻辑和物理结构，使之满足用户的信息管理要求和数据操作要求，有效地支持各种应用系统的开发和运行。数据库设计的目标是为用户和各种应用系统提供一个高效的运行环境。而数据库的设计可以视为如下的优化问题。</div>
+<div>(1) 计算机的软硬件环境；</div>
+<div>(2) 数据库管理系统的能力；</div>
+<div>(3) 用户的操作要求与信息要求；</div>
+<div>(4) 完整性和安全性约束。</div>
+<div>2. 系统目标</div>
+<div>公交查询系统开发的目的是为乘客的出行提供准确、及时、优化的公交信息服务。系统向乘客提供公交信息的动态走向，生成出行辅助计划，对乘客的出行进行主动而合理的引导，较大程度上方便乘客，从而将无序的交通出行变得有序，优化客流分布，提高公交线网的运行效率，同时将该系统投入实际应用也是提高城市形象的一项重要举措。</div>
+<div>乘客能够对现有的公交站点、公交线路、运营计划进行查询。乘客输入任意出行起点、终点，系统可在相应的约束条件下，查找搜索出最优公交出行路径和换乘方案，最后以图的形式反馈给乘客。同时管理人员可根据站点、线路的变更，运营调度计划的调整，及时更新系统的公交线网，对与公交有关的其他基础数据方便地进行管理和维护。</div>
+<div>3. 体系结构规划</div>
+<div>本系统的建立遵循以下基本原则：</div>
+<div>1)规范化，系统的信息来源、数据组成与结构模式尽量满足国家数字化生产及运作的标准与规范；</div>
+<div>2)实用性，无论是系统的设计思路或应用模式均突出方便实用的基本原则；</div>
+<div>3)科学性，系统的内容结构与分类方法充分体现已有的科学研究成果，力求完整、系统、简洁。</div>
+<div>此外，系统的建立还遵循可扩展性与灵活性的原则要求。</div>
+<div>4. 需求分析</div>
+<div>目前，城市公交线路庞大复杂，人们在出行时难免会为乘坐公交而头疼。而信息技术不断发展的趋势下，人们对一些信息的求知也日益增加。因此，开发一套供人们快速查找公交线路的系统势在必行。</div>
+<div>综合考虑各城市、车次的类型：按车次的线路类型可以分为上行、下行、沿线和环线，一些大城市可能还会有区问车的说法；按票价类型可以分为一票制和非一票制，一票制表示车次的票价是固定的，乘坐一站和全程的票价是一样的；非一票制表示车次的票价是变动的，在规定的站台数内是固定的，超出规定的站台数就要按站台数来计价；按车次的基本属性可以分为市区公交、郊区公交、特殊专线和旅游专线等。</div>
+<div>4.1 数据库描述</div>
+<div>Line_Info：这是对公交线路的数据库，里面包含有公交线路号数，起始站点，终点站点，所属汽车公司，所经过的站点，站点分为上下行两种。</div>
+<div>字段名称</div>
+<div><br/></div>
+<div>数据类型</div>
+<div><br/></div>
+<div>描述</div>
+<div>Line_Num</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>公交线路名称</div>
+<div>Terminal_Begin</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>起始站点</div>
+<div>Terminal_End</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>终点站点</div>
+<div>Stations_Up_Going</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>上行的站点</div>
+<div>Stations_Down_Going</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>下行的站点</div>
+<div><br/></div>
+<div>Locations_Info：里面包含的数据是地方名的相对位置，在该系统的地图上用相对坐标来定位具体位置。就算用户不知道站点名字，也能通过地方名来进行查询。</div>
+<div>字段名称</div>
+<div><br/></div>
+<div>数据类型</div>
+<div><br/></div>
+<div>描述</div>
+<div>Location</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>地点名称</div>
+<div>Position_X</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对X坐标</div>
+<div>Position_Y</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对Y坐标</div>
+<div><br/></div>
+<div><br/></div>
+<div>Stations_Info：储存的是站点在地图上的相对坐标的信息，同上面一样采用的是相对位置的方式来保存信息。</div>
+<div>字段名称</div>
+<div><br/></div>
+<div>数据类型</div>
+<div><br/></div>
+<div>描述</div>
+<div>Station_Name</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>站点名称</div>
+<div>Position_X</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对X坐标</div>
+<div>Position_Y</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对Y坐标</div>
+<div><br/></div>
+<div>XXX.Info:保存的是例如麦当劳之类的比较闻名的地方名。能给拥护提供站点附件商场或者旅景点。</div>
+<div>XXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>XXXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>XXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>XXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>Yyy.info:储存的是公交车的线路，如拐弯点之累的能显示一条完整公交线的数据，和上面的都一样，采用相对坐标的手段来进行定位。</div>
+<div>XXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>XXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>XXX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>XX</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>4.2 数据流图</div>
+<div><br/></div>
+<div>5. 可行性分析研究</div>
+<div><br/></div>
+<div>第三章 系统总体设计</div>
+<div><br/></div>
+<div>1. 数据库模式的选择</div>
+<div>数据库(Database，简称DB)是存储在计算机内、有组织的、可共享的相关数据的集合。数据库中的数据按一定</div>
+<div>的数据模型组织、描述和存储，具有较小的冗余度、较高的数据独立性和扩展性，并可为各种用户共享。数据库中的数据是高度结构化的，可以存储大量的数据，并且能够方便数据的查询，另外数据库还具有较好的保护数据安全和维护数据一致性的措施，能够方便数据的共享。</div>
+<div>2. 概要设计</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>3. 详细设计</div>
+<div>3.1 主要模块功能详述</div>
+<div><br/></div>
+<div>3.2 数据库设计过程</div>
+<div>数据库的设计过程如图3-1所示。在数据库设计过程中，需求分析和概念设计可以独立于任何数据库管理系统进行。逻辑设计和物理设计与具体的数据库管理系统密切相关。由于需求分析比较重要。我们在设计的时候，花了比较多的时间。在获得这些资料之后，进行分析。从中提取有用的部分。分析各种用户的权限。</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>需求分析</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>需求分析说明书</div>
+<div><br/></div>
+<div><br/></div>
+<div>概念数据库设计</div>
+<div><br/></div>
+<div><br/></div>
+<div>概念数据库模式</div>
+<div>独立于数据 （高级数据模型）</div>
+<div><br/></div>
+<div>逻辑数据库设计</div>
+<div>理系统相关</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>逻辑数据库模式</div>
+<div>（特定数据模型）</div>
+<div><br/></div>
+<div>物理数据库设计</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>物理数据库模式</div>
+<div>（特定的物理存储结构和存取方式）</div>
+<div><br/></div>
+<div>数据库设计过程</div>
+<div>3.3 连接数据库</div>
+<div>以Visual Basic作为前台开发工具，Access作为后台数据库。采用Visual Basic语言的ADO Data控件存Access数据库。ADO数据访问接121是最新的数据库访问技术，用它可以创建几个对象就可连接数据源、获取所需数据和进行数据访问后的保存操作。ADO对象模型定义了一个可编程的分层对象集合，主要由三个对象成员Connection、Command和Re—cordset对象，以及几个集合对象Errors、Parameters和Fidlds等组成。</div>
+<div>ADO Data控件可以执行大部份数据库访问操作，例如：数据指针(SQL语言称为游标技术)的移动、赋值等功能。</div>
+<div>但并不能显示数据库中数据的内容。ADO Data控件通常与“数据觉察”控件Data List控件、Data Combo控件和Data Grid控件结合使用。当ADO Data控件中当前记录发生变化时，“数据觉察”控件的内容也会随之发生变化。</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>连接数据库</div>
+<div><br/></div>
+<div>4. 界面设计</div>
+<div>4.1 以用户为中心的界面设计</div>
+<div><br/></div>
+<div><br/></div>
+<div>4.2 界面窗口</div>
+<div><br/></div>
+<div><br/></div>
+<div>第四章 系统平台的选用</div>
+<div><br/></div>
+<div>1. 数据库技术的现状与发展</div>
+<div>1.1 数据库的分类</div>
+<div>(1)Jet数据库：数据库由Jet引擎直接生成和操作，不仅灵活而且速度快，Microsoft Access和VB使用相同的Jet数据库引擎。</div>
+<div>(2)ISAM数据库：索引顺序访问方法(ISAM)数据库。有同种不同形式，如Dbase、FoxPro、TextFiles和Paradox。在VB中可以生成和操作这些数据库。</div>
+<div>(3)ODBC数据库：开放数据库连接。这类数据库包括遵守ODBC标准的客户／Ha务器数据库，如Microsoft SQL Server等。</div>
+<div>1.2 Microsoft Acess 数据库</div>
+<div>① Access程序简介。</div>
+<div>Microsoft Access是一个关系型桌面数据库管理系统，它可以用来建立中、小型的数据库应用系统。自从1992年首次发布以来，Microsoft Access已逐渐成为桌面数据库的领导者。</div>
+<div>② Access的主要特点</div>
+<div>Access是微软公司开发的第一个面向Windows平台的桌面数据库管理系统，它充分利用了Windows平台的优越性；Access利用系统提供的向导或生成器，使用几个简单的宏或VBA语句，就可以迅速建立简单的应用程序；Access中的数据库文件不是简单存储数据的表，这是Access与其他桌面数据库的一个重要区别。Access数据库文件不仅公包含传统意义上的表，还包括操作或控制数据的其他对象(如查询、窗体和报表等)。</div>
+<div>③结构化查询语言SQL。</div>
+<div><br/></div>
+<div>2. 数据库系统的选择原则</div>
+<div><br/></div>
+<div><br/></div>
+<div>3. 系统开发工具的选择</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>第五章 系统测试</div>
+<div><br/></div>
+<div>1. 对软件进行测试的基本原则</div>
+<div><br/></div>
+<div><br/></div>
+<div>2. 对软件进行测试的主要方法</div>
+<div><br/></div>
+<div><br/></div>
+<div>3. 测试内容及结果</div>
+<div><br/></div>
+<div><br/></div>
+<div>4. 系统存在的问题</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>第六章 结 论</div>
+<div><br/></div>
+<div>1. 本系统特点</div>
+<div><br/></div>
+<div>2. 开发心得</div>
+<div>致 谢</div>
+<div><br/></div>
+<div>内容请同学们自己撰写。</div>
+<div>参考文献</div>
+<div><br/></div>
+<div>[1] 陈立潮，刘玉树，张永梅．城市交通智能咨询系统的设计与实现【J】．计算机工程，2003；29(1)：32-340．</div>
+<div>[2] 严蔚敏，吴伟民．数据结构【M】．清华大学出版社，1996．</div>
+<div>附 录</div>
+<div><br/></div>
+<div>附录A</div>
+<div>A.1 查询模块源代码</div>
+<div>procedure TForm4.Button7Click(Sender: TObject);</div>
+<div><br/></div>
+<div>A.2 统计模块源代码</div>
+<div>end;</div>
+<div>A.3 数据库备份模块源代码</div>
+<div>附录B</div>
+<div>B.1 查询模块生成页面</div>
+<div><br/></div>
+<div>B.2 统计模块生成页面</div>
+<div><br/></div>
+<div>B.3 数据库备份生成页面</div>
+<div><br/></div>
+</body></html>

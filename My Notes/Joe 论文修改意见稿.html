@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 5.6.2 (450946)"/><meta name="altitude" content="42.58078002929688"/><meta name="author" content="Leask Wong"/><meta name="created" content="2014-04-03 15:26:19 +0000"/><meta name="latitude" content="22.7706193258861"/><meta name="longitude" content="114.2973715084289"/><meta name="updated" content="2014-04-03 15:26:19 +0000"/><title>Joe 论文修改意见稿</title></head><body>
+<div><br/></div>
+<div><br/></div>
+<div>华南师范大学增城学院毕业设计（论文）</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>公交车线路查询系统数据库设计</div>
+<div><br/></div>
+<div>学生姓名：梁健洲</div>
+<div>学 号：049524246</div>
+<div>专业班级：电子商务（2）班</div>
+<div>指导教师：张小兰</div>
+<div><br/></div>
+<div><br/></div>
+<div>2008年5月8日</div>
+<div>摘 要</div>
+<div><br/></div>
+<div>公共交通系统是城市交通的重要组成部分，随着城市规模的扩大，公交线路查询必将成为人们日常出行必不可少的需要之一。</div>
+<div>论文首先分析了目前我国城市公交线路查询系统存在的缺点，然后根据实际需要提出了城市公交乘车查询系统的数据库设计方案。最后以深圳市城市公交线路为例，构建了深圳市公交路线智能查询系统。该系统以Access数据库为基础，利用VB进行开发，实现了深圳市公交线路的智能查询，包括最短路径的查询，地图显示站点和公交线路，著名地点商店的查询，如：麦当劳，星巴克，必胜客等一些比较出名的商店，用户可以直接查询出名商店的具体位置，然后再选择自己适合的出行路线，这样的做法既能为用户提供方便的出行方案又能为商家提供广告的效用。</div>
+<div><br/></div>
+<div><br/></div>
+<div>关键词:公交车线路查询系统；数据库；VB</div>
+<div>ABSTRACT</div>
+<div>先不着急翻译摘要，这个留到最后去做。</div>
+<div>Urban public transport system is an important component of the traffic, with the expansion of the size of the cities, bus lines will become routine for travel and tourism in one of the essential needs. Analysis of the current China's urban public transport system for the defects, according to actual needs of the urban public transport to travel for the system design and system implementation method, based on the Access database, developed by VB to achieve the city's bus lines Intelligent query.</div>
+<div><br/></div>
+<div>Keywords: Administrative system;; Database;</div>
+<div>目 录</div>
+<div>第一章 前 言 1</div>
+<div>1．引言 1</div>
+<div>2. 研究背景 1</div>
+<div>3. 系统目标 3</div>
+<div>第二章 系统分析 4</div>
+<div>1. 系统需求分析 4</div>
+<div>2. 系统目标 4</div>
+<div>3. 系统意义 4</div>
+<div>第三章 公交线路查询系统的实现 5</div>
+<div>1. 系统的总体设计 5</div>
+<div>2. 系统核心开发技术 5</div>
+<div>2.1 介绍Visual Basic语言 5</div>
+<div>2.2介绍Microsoft Access关系数据库 5</div>
+<div>2.3 介绍SQL结构化查询语言 6</div>
+<div>4.查询界面 7</div>
+<div>第四章 公交线路查询系统的数据库设计 7</div>
+<div>1. 数据库设计理论 7</div>
+<div>2. 公交线路查询系统的数据库分析 8</div>
+<div>3. 公交线路查询系统的数据库设计 8</div>
+<div>3.3.1概念结构设计 11</div>
+<div>3.3.2 数据逻辑结构设计 12</div>
+<div>3.4 小结 12</div>
+<div>第五章 结论 12</div>
+<div>1. 系统能实现的功能 12</div>
+<div>2. 不足的地方 13</div>
+<div>3. 开发心得 14</div>
+<div>致 谢 15</div>
+<div>参考文献 16</div>
+<div>附 录 16</div>
+<div>第一章 前 言</div>
+<div><br/></div>
+<div>1．引言</div>
+<div>城市公共交通作为城市交通网络中的重要组成部分，是城市内部人流的主要传输载体，对降低车辆流量、舒缓交通负载与堵塞、改善车流效率发挥至关重要的作用。如何快速寻找一条经济、合理、方便的最优乘车路线或换乘方案，成为城市居民和外地旅客一个非常困惑的问题。[1]</div>
+<div>一般的最优乘车线路即最优路径是依据网络拓扑关系，通过计算起点到终点的最短路径来解决的。虽然，公交网络在数学上也可以描述为一个网络，但它与图论中的网络图存在较大的区别。如果，直接用图论中描述网络图的方法来描述公交网络，是一件比较困难的事，所以，公交最优乘车路线问题不适合用经典的最短路径算法来解决。随着数据库技术的发展，数据库的运算效率大大提高，用数据库来表示公交网络，用数据库查询技术实现公交的最优乘车路线查询，完全可以满足用户出行查询的要求。[2]</div>
+<div>在互联网普及的今天，交通信息服务的电子化是必然趋势。虽然互联网上存在着许多公交信息查询系统，然而脱离网络的公交信息查询系统却并不多见。为了能够为市民特别是为外来旅游、出差、就医、求职等急需了解本地的公交路线的人提供高效、方便、快捷的公交信息查询，让他们得到自己所需要的各种相关信息，以便减少各种可能产生不必要的交通流量，提高公交的运作效率，基于此目的特进行本系统的设计。</div>
+<div>该系统加入了著名地点商店的查询，方便了用户的查询，又能起到进一步推广著名商店的作用。节约商店广告的成本，有利于实现生产要素的最佳配置和极大地节约物质、能源资源等等。这是信息充分化带来的必然好处。</div>
+<div><br/></div>
+<div><br/></div>
+<div>2. 研究背景</div>
+<div>在西方国家(如美国、日本等)．在城市公交网络系统上投人了极大的财力．构建了利用计算机网络和先进的通信系统的智能运输系统ITS(Intelligence Transport System) ．从而实现了大范围内全方位发挥的实时、准确、高效的运输综合管理，使人、车、路密切配合，和谐统一 ，大大改善了交通环境等。国内在这方面的起步较晚，但是各地政府都给予了极大的重视 ．相继建立了网上公交线路查询系统 ，但是效果不甚理想 。</div>
+<div>主要存在以下一些问题 ：</div>
+<div>(1)查询界面不直观。目前大多数公交线路查询系统都以输入起始站点和终到站点的方式进行文本查询，而不能和城市地图匹配，这给那些不熟悉城市公交站点的出行者(如外地游客)带来了很大困难.</div>
+<div>(2) 提供信息不全。大部分的深圳公交车线路查询系统的数据库都有不完整或者是不准确的，导致信息失真，从而让用户收到“坐错车”的困扰。</div>
+<div>(3)公交线路更改不便。由于公交数据结构的原因，在大多数公交系统中．如果需要更改其中某一条公交线路或需要增加一条新的公交线路。则需要对数据库进行重构。</div>
+<div>(4)换乘查询时间不理想，无论是首次查询还是二次查询速度都不理想。</div>
+<div><br/></div>
+<div>鉴于此，我们开发了一个数据库完善、准确、界面直观的公交车线路查询系统，该系统有以下优点：</div>
+<div>(1)查询界面人性化，操作简单直观。配合有百度地图提供的深圳地图，能让用户在地图上看到需要乘坐的公交车的完整线路。</div>
+<div>(2)有离线操作的优点，我们的系统是一个客户端，是把程序和数据库结合在一个客户端里面，用户不必每次查询的时候都要依赖互联网，只是数据库或者程序更新的时候才需要互联网。</div>
+<div>(3)数据库编辑功能。用户可以自己增加、修改和删除车次，并能对某一车次的途径站进行增加、修改和删除操作。要求当用户延长某次的线路时，系统能自动修改车次的总点站和起点站。</div>
+<div>(4)换乘查询功能。用户输入起点站和终点站，系统搜索出两站台之间所有直达车次和依次换乘车次，返回到用户界面并在地图上显示给用户。</div>
+<div>(5)该系统有著名商店的查询，用户可以搜索著名地点或者商店的，从而选择用户最佳的出行线路的同时为商家带来广告的效用。</div>
+<div><br/></div>
+<div>3. 系统目标</div>
+<div>公交线路查询系统主要服务于对市内公交线路不太熟悉的居民以及外地旅客，他们在选择公交线路和乘车方案时存在着很大的盲目性，而该查询系统除了可以为出行者提供线路运行信息外，还可以将经过计算机分析的最佳出行线路及换乘方案推荐给导乘客合理化选择线路，减少乘客的出行延误，从而提高整个公交线网的运行效率。</div>
+<div>公交线路查询系统开发的目的是为乘客的出行提供准确、及时、优化的公交信息服务。系统向乘客提供公交信息的动态走向，生成出行辅助计划，对乘客的出行进行主动而合理的引导，较大程度上方便乘客，从而将无序的交通出行变得有序，优化客流分布，提高公交线网的运行效率，同时将该系统投入实际应用也是提高城市形象的一项重要举措。</div>
+<div>乘客能够对现有的公交站点、公交线路、运营计划进行查询。乘客输入任意出行起点、终点，系统可在相应的约束条件下，查找搜索出最优公交出行路径和换乘方案，最后以图的形式反馈给乘客。同时管理人员或者用户都可根据站点、线路的变更，运营调度计划的调整，及时更新系统的公交线网，对与公交有关的其他基础数据方便地进行管理和维护。</div>
+<div>第二章 系统分析</div>
+<div><br/></div>
+<div>1. 系统需求分析</div>
+<div>目前，城市公交线路庞大复杂，人们在出行时难免会为乘坐公交而头疼。而信息技术不断发展的趋势下，人们对一些信息的求知也日益增加。然而一个能为深圳用户提供准确线路信息的公交车线路查询系统尚未出现，经过调查分析后开发一套供深圳人们快速查找公交线路的系统势在必行。</div>
+<div>2. 系统目标</div>
+<div>公交线路查询系统主要服务于对市内公交线路不太熟悉的居民以及外地旅客，他们在选择公交线路和乘车方案时存在着很大的盲目性，而该查询系统除了可以为出行者提供线路运行信息外，还可以将经过计算机分析的最佳出行线路及换乘方案推荐给导乘客合理化选择线路，减少乘客的出行延误，从而提高整个公交线网的运行效率。</div>
+<div>公交线路查询系统开发的目的是为乘客的出行提供准确、及时、优化的公交信息服务。系统向乘客提供公交信息的动态走向，生成出行辅助计划，对乘客的出行进行主动而合理的引导，较大程度上方便乘客，从而将无序的交通出行变得有序，优化客流分布，提高公交线网的运行效率，同时将该系统投入实际应用也是提高城市形象的一项重要举措。</div>
+<div>乘客能够对现有的公交站点、公交线路、运营计划进行查询。乘客输入任意出行起点、终点，系统可在相应的约束条件下，查找搜索出最优公交出行路径和换乘方案，最后以图的形式反馈给乘客。同时管理人员或者用户都可根据站点、线路的变更，运营调度计划的调整，及时更新系统的公交线网，对与公交有关的其他基础数据方便地进行管理和维护。</div>
+<div>3. 系统意义</div>
+<div>系统面向广大的城市居民和外来的旅游者，为不同需求的用户提供全面、准确的公交信息；而且面向系统管理员，方便其对系统的管理与维护。不仅可以通过模糊查询、点图查询等方式查询到公交线路的基本信息，如某条线路沿途停靠的站点等，还可以进行最优路径分析，帮助出行者选择最佳路线、换乘方案，以提高出行的便利性和高效性。操作简单、界面友好，方便不懂计算机的普通用户也能操作，获得所需要的信息。</div>
+<div>第三章 公交线路查询系统的实现</div>
+<div>1. 系统的总体设计</div>
+<div><br/></div>
+<div>2. 系统核心开发技术</div>
+<div>2.1 介绍Visual Basic语言</div>
+<div>Visual Basic（VB）是一种由微软公司开发的包含协助开发环境的事件驱动编程语言。从任何标准来说，VB都是丠界上使用人数最多的语言——不仅是盠赞VB的开发者还是抱怨VB的开发者的数颃。它源自于BASIC编程语言。VB拥有图形用户界面（GUI）和快速应用程序开发（RAD）系统，可以轻易的使用DAO、RDO、ADO连接数据库，或者轻松的创建ActiveX控件。程序员可以轻松的使用VB提供的组仠快速建立一个应用程序。</div>
+<div>2.2介绍Microsoft Access关系数据库</div>
+<div>Access 是微软公司推出的基于Windows的桌面关系数据库管理系统（RDBMS），是Office系列应用软件之一。它提供了表、查询、窗体、报表、页、宏、模块7种用来建立数据库系统的对象；提供了多种向导、生成器、模板，把数据存储、数据查询、界面设计、报表生成等操作规范化；为建立功能完善的数据库管理系统提供了方便，也使得普通用户不必编写代码，就可以完成大部分数据管理的任务。</div>
+<div>Access是一种关系型数据库管理系统，其主要特点如下：</div>
+<div>2.2.1存储方式单一</div>
+<div>Access管理的对象有表、查询、窗体、报表、页、宏和模块，以上对象都存放在后缀为（.mdb）的数据库文件种，便于用户的操作和管理。</div>
+<div>2.2.2面向对象</div>
+<div>Access是一个面向对象的开发工具，利用面向对象的方式将数据库系统中的各种功能对象化，将数据库管理的各种功能封装在各类对象中。它将一个应用系统当作是由一系列对象组成的，对每个对象它都定义一组方法和属性，以定义该对象的行为和外国，用户还可以按需要给对象扩展方法和属性。通过对象的方法、属性完成数据库的操作和管理，极大地简化了用户的开发工作。同时，这种基于面向对象的开发方式，使得开发应用程序更为简便。</div>
+<div>2.2.3 界面友好、易操作</div>
+<div>Access是一个可视化工具，是风格与Windows完全一样，用户想要生成对象并应用，只要使用鼠标进行拖放即可，非常直观方便。系统还提供了表生成器、查询生成器、报表设计器以及数据库向导、表向导、查询向导、窗体向导、报表向导等工具，使得操作简便，容易使用和掌握。</div>
+<div>2.2.4 集成环境、处理多种数据信息</div>
+<div>Access基于Windows操作系统下的集成开发环境，该环境集成了各种向导和生成器工具，极大地提高了开发人员的工作效率，使得建立数据库、创建表、设计用户界面、设计数据查询、报表打印等可以方便有序地进行。</div>
+<div>2.2.5 Access支持ODBC（开发数据库互连，Open Data Base Connectivity），利用Access强大的DDE（动态数据交换）和OLE（对象的联接和嵌入）特性，可以在一个数据表中嵌入位图、声音、Excel表格、Word文档，还可以建立动态的数据库报表和窗体等。Access还可以将程序应用于网络，并与网络上的动态数据相联接。利用数据库访问页对象生成HTML文件，轻松构建Internet/Intranet的应用。</div>
+<div><br/></div>
+<div>2.3 介绍SQL结构化查询语言</div>
+<div>SQL是英文Structured Query Language的缩写，意思为结构化查询语言。SQL语言的主要功能就是同各种数据库建立联系，进行沟通。按照ANSI(美国国家标准协会)的规定，SQL被作为关系型数据库管理系统的标准语言。SQL语句可以用来执行各种各样的操作，例如更新数据库中的数据，从数据库中提取数据等。目前，绝大多数流行的关系型数据库管理系统，如Oracle, Sybase, Microsoft SQL Server, Access等都采用了SQL语言标准。虽然很多数据库都对SQL语句进行了再开发和扩展，但是包括Select, Insert, Update, Delete, Create,以及Drop在内的标准的SQL命令仍然可以被用来完成几乎所有的数据库操作。</div>
+<div><br/></div>
+<div><br/></div>
+<div>4.查询界面</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>第四章 公交线路查询系统的数据库设计</div>
+<div>1. 数据库设计理论</div>
+<div>数据库(Database，简称DB)是存储在计算机内、有组织的、可共享的相关数据的集合。数据库中的数据按一定</div>
+<div>的数据模型组织、描述和存储，具有较小的冗余度、较高的数据独立性和扩展性，并可为各种用户共享。数据库中的数据是高度结构化的，可以存储大量的数据，并且能够方便数据的查询，另外数据库还具有较好的保护数据安全和维护数据一致性的措施，能够方便数据的共享。</div>
+<div>2. 公交线路查询系统的数据库分析</div>
+<div>分析众多的深圳公交车线路查询系统后，我们发现这么多的查询系统当中不是缺乏地图显示的就是，线路信息不准确的，或者是查询界面不直观的，或者是查询速度不理想等一些不足的地方，我们开发了一个信息准确操作直观简单并且有地图显示的系统。</div>
+<div>作为一个公交车线路查询系统，数据库当然要包括与公交车有关的种种信息，包括，线路名称、公交车所经过的站点，（为了更加符合显示生活中得实际情况在数据库设计的时候 ，我们将公交车线路的上下行站点以及上下行路线作单独的存储，以便程序根据具体情况识别运算得出更有参考价值的结果，如329路公交车分别以329上行、329下行加以区别而存储。虽然这样增加了数据量，但是可以简化各种问题。）为了能支持计算最短线路路程，而系统对数据库采用地图“点”化，也就是说对公交车线路所经过的路线都以点的形式储存。这样的储存方式不单单有利于计算最短线路，而且还能在地图上给用户显示乘坐的线路。上面有提到查询速度不理想，我们采用缓存的技术来对用户的操作进行储存，如：用户查询从东门到紫薇花园的公交车线路查询，系统会先查询用户的缓存，匹配起点站和终点站，如果能在缓存上匹配上的化就马上给用户输出有关的全部信息，这能提高换乘查询的速度。缓存的数据库是根据用户的使用而不断积累的，当该数据库量足够大的时候，换乘查询就会想查询直达车一样，在跟着的章节会详细介绍。</div>
+<div>3. 公交线路查询系统的数据库设计</div>
+<div>根据系统需要我们总共设计了四个表，具体有Line_Info、Locations_Info、Stations_Info和Temp_Shed四个数据库。</div>
+<div>3. 1 Line_Info：这是公交线路的数据库，里面包含有公交线路号数，起始站点，终点站点，所属汽车公司，所经过的站点等一些有关线路的信息。</div>
+<div>字段名称</div>
+<div><br/></div>
+<div>数据类型</div>
+<div><br/></div>
+<div>描述</div>
+<div>Line_Num</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>公交线路名称</div>
+<div>Terminal_Begin</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>起始站点</div>
+<div>Terminal_End</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>终点站点</div>
+<div>Stations_Up_Going</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>上行的站点</div>
+<div>Stations_Down_Going</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>下行的站点</div>
+<div>Company</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>所属公车公司</div>
+<div>Path_ICED</div>
+<div><br/></div>
+<div>是 /否</div>
+<div><br/></div>
+<div>线路显示</div>
+<div>Path_Up_Going</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>上行站点拐点坐标</div>
+<div>Path_Down_Going</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>下行站点拐点坐标</div>
+<div>Roads_Up_Going</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>上行经过的道路</div>
+<div>Roads_Down_Going</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>下行经过的道路</div>
+<div>现在的城市公交车线路是非常复杂的，就算是同一条线路上行与下行所经过的站点都会有出入，所以我们采取了上行和下行对公交路线进行储存，虽然为数数据库录入工作带来额外负担，但能为用户提供准确的信息的同时方便系统进行最短线路的计算，等很多方面的有点。我们用了英语输入法下的“&gt;”符号进行对数据库站点间的分隔。</div>
+<div>有了区分线路的上行与下行，从而带来了线路坐标的上下行之分，的确公交车上行与下行所经过的线路会有一定的变化，一个很明显的例子，单行线，上行的时候经过单行线，下行的时候就一定要绕路，从而增加或者减少乘坐的总路程。意味着影响到最段线路的计算。该系统的比例尺是60像素：1公里的，也就是说地图上很短的距离在显示中会有很明显的距离的差别。可见细分公交车线路的上下行有利于给用户提供真实信息的同时，还有利于计算最段的线路。</div>
+<div><br/></div>
+<div>3.2 Locations_Info：里面包含的数据是地方的相对位置，在该系统的地图上用相对坐标来定位相对位置。</div>
+<div>字段名称</div>
+<div><br/></div>
+<div>数据类型</div>
+<div><br/></div>
+<div>描述</div>
+<div>Location</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>地点名称</div>
+<div>Position_X</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对X坐标</div>
+<div>Position_Y</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对Y坐标</div>
+<div>Information</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>预留给商家的广告信息项目</div>
+<div>Image</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>建筑物的图</div>
+<div>该系统的地图是从百度地图上截取下来然后整合到客户端里面的，我们进行地点定位的时候采用相对坐标能方便开发者的工作，在用户客户端里面显示的是经过计算转换的实际经纬度。</div>
+<div>开发此数据库的主要目的是为商家预备的，预期效果有用户可以查询公交站点后，系统自动提示在该站点附近有那些商店，或者是搜索商店名后系统计算距离目标事物最近的公交车站点。从而方便用户上下车的准备，还有就是给旅游人士的出行带来充足的准备或者计划。</div>
+<div><br/></div>
+<div>3.3 Stations_Info：储存的是站点在地图上的相对坐标的信息，同上面一样采用的是相对位置的方式来保存信息。</div>
+<div>字段名称</div>
+<div><br/></div>
+<div>数据类型</div>
+<div><br/></div>
+<div>描述</div>
+<div>Station_Name</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>站点名称</div>
+<div>Position_X</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对X坐标</div>
+<div>Position_Y</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>相对Y坐标</div>
+<div>开发此数据库的目标有两个，其中一个和3.2.2有关联，上面提到的“开发此数据库的主要目的是为商家预备的，……后系统计算距离目标事物最近的公交车站点。”这个数据库的站点坐标主要是为计算商店与站点之间的最短距离而准备的，也.是为商家准备的。另一个目标是，把站点坐标独立出来还有利于在用户进行模糊查询时系统运行的速度，例如：用户输入“紫薇”时，系统就不必搜索所有公交车线路的所有站点，就能马上在备选栏下显示“紫薇花园、紫薇步行街、紫薇阁、紫薇花园步行街”，能提高用户的查询效率。</div>
+<div><br/></div>
+<div>3. 4 Temp_Shed:保存的是客户端的使用缓存。</div>
+<div>St_A</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>查询的起点站</div>
+<div>St_B</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>查询的终点站</div>
+<div>Line_CH</div>
+<div><br/></div>
+<div>是 /否</div>
+<div><br/></div>
+<div>是否有换乘</div>
+<div>Line_A</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>换乘前的线路</div>
+<div>Line_B</div>
+<div><br/></div>
+<div>文本</div>
+<div><br/></div>
+<div>换乘后的线路</div>
+<div>Line_A_Sts</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>换乘前经过的站点</div>
+<div>Line_B_Sts</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>换乘后经过的站点</div>
+<div>Line_A_Path</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>换乘前的线路坐标</div>
+<div>Line_B_Path</div>
+<div><br/></div>
+<div>备注</div>
+<div><br/></div>
+<div>换乘后的线路坐标</div>
+<div>Line_Long</div>
+<div><br/></div>
+<div>数字</div>
+<div><br/></div>
+<div>总的乘坐里程</div>
+<div>当用户输入进行查询时，系统会先搜索这个数据库，匹配用户输入的“起点”项和“终点”项，也就是匹配数据库里面的St_A与St_B，要是完全匹配后系统会把该条项目的全部信息反馈给用户，从而提高查询的速度。要是经过匹配后没有找到能匹配的项目，系统就会进行正常的数据查询，然后在这个数据库上进行储存，方便日后的查询，当进行再次查询时查询速度和直达车查询的速度一样。随着用户的不断使用，数据库信息量会不断增大，查询速度会不断的提高。</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>3.3.1概念结构设计</div>
+<div>从需求分析可以看到，本系统主要针对的对象是车次、站台。数据库E—R模型图如下：</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>Line_Info</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>3.3.2 数据逻辑结构设计</div>
+<div><br/></div>
+<div>用户请求</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>请求信息能匹配</div>
+<div><br/></div>
+<div>公交信息</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>请求信息不能匹配</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>写入未有缓存数据</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>公交信息</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>3.4 小结</div>
+<div>针对前面所说的网上的一些公交车线路查询系统的缺点，我们花费了大量的时间去分析现状，收集数据，最终确定系统功能</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>第五章 结论</div>
+<div>1. 系统能实现的功能</div>
+<div>(1)交互查询，包括精确查询和模糊杳询两部分。通过模糊查询，用户可以查找到与所输入关键字相关的一类事物；通过精确查询，用户可以查找到所输入事物相关信息。并在地图上高亮显示。</div>
+<div>(2)公交换乘查询，用户只需输入起点站和终点站名，查询结果面板就会给出所有的出行方案，用户可以根据自己的实际情况做出选择。</div>
+<div>(3)公交路线信息查询，点击公交路线信息查询按钮，系统进入一个新窗口，用户只需选择要查询的路线，系统输出该路线的相关信息，并在地图上高亮显示该路线。</div>
+<div>(4)站点查询，在站点查询框里面输入站点名称，系统会列出所有经过该站点的公交车线路，如我先查询经过东门站的公交线路，只需要在站点框里面输入“东门”，如图所示。就会列出所有经过东门的公交车路线，然后选中所给出的路线，系统就会输出该线路的全部信息，并在地图上高亮显示该路线。</div>
+<div>(5)地点查询，提供用户查询地点的功能。包括著名商店查询，如“麦当劳”“必胜客”“星巴克”等一些很出名的商店的查询。在商店搜索里面还加入图片显示，起到广告的作用。如下图</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>2. 不足的地方</div>
+<div>（1）由于数据量大，我们只做了20条线路的地图显示，剩下都没能在地图上显示出来，从而不能计算路程最短的使用方案。</div>
+<div>（2）该系统的地图不是矢量地图，没有放大缩小的功能。</div>
+<div>（3）在计算换乘的时候速度不理想。</div>
+<div>（4）由于时间不足，未能完成公交车站点附近著名商店提示的功能。</div>
+<div><br/></div>
+<div><br/></div>
+<div>3. 开发心得</div>
+<div><br/></div>
+<div>在这个开发过程中，让我学会到很多有关VB和Microsoft Access的一些知识，因为我是负责数据库这一块的，所以对Access有了</div>
+<div>致 谢</div>
+<div><br/></div>
+<div>内容请同学们自己撰写。</div>
+<div>参考文献</div>
+<div><br/></div>
+<div>[1] 陈立潮，刘玉树，张永梅．城市交通智能咨询系统的设计与实现[J]．计算机工程，2003；29(1)：32-340．</div>
+<div>[2] 严蔚敏，吴伟民．数据结构[M]．清华大学出版社，1996．</div>
+<div>[3] 关榆君．基于Access数据库的唐山公交线路查询系统开发[J]．中国西部科技，2006(28)：37—38</div>
+<div>附 录</div>
+<div><br/></div>
+<div>附录A</div>
+<div>A.1 查询模块源代码</div>
+<div>procedure TForm4.Button7Click(Sender: TObject);</div>
+<div><br/></div>
+<div>A.2 统计模块源代码</div>
+<div>end;</div>
+<div>A.3 数据库备份模块源代码</div>
+<div>附录B</div>
+<div>B.1 查询模块生成页面</div>
+<div><br/></div>
+<div>B.2 统计模块生成页面</div>
+<div><br/></div>
+<div>B.3 数据库备份生成页面</div>
+<div><br/></div>
+</body></html>
